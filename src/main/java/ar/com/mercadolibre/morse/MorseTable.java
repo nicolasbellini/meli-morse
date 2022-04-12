@@ -8,11 +8,11 @@ public class MorseTable {
     private static BidiMap<String, String> charMap = load(new DualHashBidiMap<>());
 
     public static BidiMap<String, String> getLetterToMorseMap(){
-        return charMap;
+        return charMap.inverseBidiMap();
     }
 
     public static BidiMap<String, String> getMorseToLetterMap(){
-        return charMap.inverseBidiMap();
+        return charMap.inverseBidiMap().inverseBidiMap();
     }
 
     public static DualHashBidiMap<String, String> load(DualHashBidiMap<String, String> morseConvertionMap) {

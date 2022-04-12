@@ -15,7 +15,7 @@ public class Human2MorseTranslator extends MorseTranslator{
         String[] words = phrase.split("\\s+");
 
         for (String word : words) {
-            String finalWord = this.translateWord(word.toCharArray());
+            String finalWord = this.translateWord(word.split(""));
             finalMorse = finalMorse + finalWord + " ";
         }
 
