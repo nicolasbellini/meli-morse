@@ -1,21 +1,21 @@
 package ar.com.mercadolibre.morse;
 
-import org.apache.commons.collections4.BidiMap;
-import org.apache.commons.collections4.bidimap.DualHashBidiMap;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 
 public class MorseTable {
 
-    private static BidiMap<String, String> charMap = load(new DualHashBidiMap<>());
+    private static BiMap<String, String> charMap = load(HashBiMap.create());
 
-    public static BidiMap<String, String> getLetterToMorseMap(){
-        return charMap.inverseBidiMap();
+    public static BiMap<String, String> getLetterToMorseMap(){
+        return charMap;
     }
 
-    public static BidiMap<String, String> getMorseToLetterMap(){
-        return charMap.inverseBidiMap().inverseBidiMap();
+    public static BiMap<String, String> getMorseToLetterMap(){
+        return charMap.inverse();
     }
 
-    public static DualHashBidiMap<String, String> load(DualHashBidiMap<String, String> morseConvertionMap) {
+    public static BiMap<String, String> load(HashBiMap<String, String> morseConvertionMap) {
 
         morseConvertionMap.put("A",".-");
         morseConvertionMap.put("B","-...");

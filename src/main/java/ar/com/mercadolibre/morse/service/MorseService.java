@@ -1,6 +1,5 @@
 package ar.com.mercadolibre.morse.service;
 
-import ar.com.mercadolibre.morse.MorseTranslatorOld;
 import ar.com.mercadolibre.morse.exception.CharNotFoundException;
 import ar.com.mercadolibre.morse.exception.PatternMatchingException;
 import ar.com.mercadolibre.morse.model.Morse2HumanTranslator;
