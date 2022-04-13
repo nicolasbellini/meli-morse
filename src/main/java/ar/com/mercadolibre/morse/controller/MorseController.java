@@ -22,7 +22,7 @@ public class MorseController {
 
     @PostMapping("/2morse")
     @ResponseStatus(HttpStatus.OK)
-    public String toMorse(@RequestBody String text) throws PatternMatchingException {
+    public String toMorse(@RequestBody String text) throws PatternMatchingException, CharNotFoundException {
         return morseService.translateToMorse(text);
     }
 
