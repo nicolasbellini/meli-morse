@@ -2,8 +2,8 @@ package ar.com.mercadolibre.morse.service;
 
 import ar.com.mercadolibre.morse.exception.CharNotFoundException;
 import ar.com.mercadolibre.morse.exception.PatternMatchingException;
-import ar.com.mercadolibre.morse.model.Human2MorseTranslator;
-import ar.com.mercadolibre.morse.model.Morse2HumanTranslator;
+import ar.com.mercadolibre.morse.model.translator.Human2MorseTranslator;
+import ar.com.mercadolibre.morse.model.translator.Morse2HumanTranslator;
 import org.springframework.stereotype.Service;
 
 @Service

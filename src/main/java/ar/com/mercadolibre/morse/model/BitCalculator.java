@@ -1,22 +1,19 @@
-package ar.com.mercadolibre.morse;
+package ar.com.mercadolibre.morse.model;
 
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 public class BitCalculator {
 
-    public static int getDotMaxBitLength(String morseBitCoded1) {
+    private final BitContainer bitContainer;
 
-        final Pattern pattern = Pattern.compile("1+|0+", Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE | Pattern.MULTILINE);
-        final Matcher matcher = pattern.matcher(morseBitCoded1);
-        ArrayList<String> all = new ArrayList<>();
-        while (matcher.find()){
-            all.add(matcher.group());
-        }
+    public BitCalculator(String morseBitCoded) {
+        this.bitContainer = new BitContainer(morseBitCoded);
+    }
+
+    public static int getDotMaxBitLength(String morseBitCoded) {
+
 
         return 3;
     }

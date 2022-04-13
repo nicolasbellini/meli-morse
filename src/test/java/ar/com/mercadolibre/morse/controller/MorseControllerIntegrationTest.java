@@ -26,7 +26,7 @@ public class MorseControllerIntegrationTest {
 
     @Test
     public void test1() throws Exception {
-        MvcResult mvcResult = this.mockMvc.perform(post("/translate/2human").content(".... --- .-.. .-  -- . .-.. .."))
+        MvcResult mvcResult = this.mockMvc.perform(post("/translate/2human").param("morse",".... --- .-.. .-  -- . .-.. .."))
                 .andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
 
         Assert.assertTrue(mvcResult.getResponse().getContentAsString().equals("HOLA MELI"));
@@ -34,7 +34,7 @@ public class MorseControllerIntegrationTest {
 
     @Test
     public void test2() throws Exception {
-        MvcResult mvcResult = this.mockMvc.perform(post("/translate/2morse").content("HOLA MELI"))
+        MvcResult mvcResult = this.mockMvc.perform(post("/translate/2morse").param("text","HOLA MELI"))
                 .andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
 
         Assert.assertTrue(mvcResult.getResponse().getContentAsString().equals(".... --- .-.. .-  -- . .-.. .."));

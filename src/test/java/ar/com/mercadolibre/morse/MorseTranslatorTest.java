@@ -2,8 +2,9 @@ package ar.com.mercadolibre.morse;
 
 import ar.com.mercadolibre.morse.exception.CharNotFoundException;
 import ar.com.mercadolibre.morse.exception.PatternMatchingException;
-import ar.com.mercadolibre.morse.model.Human2MorseTranslator;
-import ar.com.mercadolibre.morse.model.Morse2HumanTranslator;
+import ar.com.mercadolibre.morse.model.BitCalculator;
+import ar.com.mercadolibre.morse.model.translator.Human2MorseTranslator;
+import ar.com.mercadolibre.morse.model.translator.Morse2HumanTranslator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

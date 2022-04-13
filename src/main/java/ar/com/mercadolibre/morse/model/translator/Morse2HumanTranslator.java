@@ -1,4 +1,4 @@
-package ar.com.mercadolibre.morse.model;
+package ar.com.mercadolibre.morse.model.translator;
 
 import ar.com.mercadolibre.morse.MorseTable;
 import ar.com.mercadolibre.morse.exception.CharNotFoundException;
@@ -18,7 +18,6 @@ public class Morse2HumanTranslator extends MorseTranslator{
             String finalWord = this.translateWord(word.trim().split("\\s+"), "");
             finalPhrase = finalPhrase + finalWord + " ";
         }
-
         return finalPhrase.trim();
 
     }
