@@ -1,4 +1,4 @@
-package ar.com.mercadolibre.morse;
+package ar.com.mercadolibre.morse.bit;
 
 import ar.com.mercadolibre.morse.model.bit.BitContainer;
 import ar.com.mercadolibre.morse.model.bit.secuence.PauseSequence;

@@ -1,4 +1,4 @@
-package ar.com.mercadolibre.morse;
+package ar.com.mercadolibre.morse.bit;
 
 import ar.com.mercadolibre.morse.model.bit.BitCalculator;
 import ar.com.mercadolibre.morse.utils.TestEnviroment;
