@@ -2,21 +2,15 @@ package ar.com.mercadolibre.morse;
 
 import ar.com.mercadolibre.morse.exception.CharNotFoundException;
 import ar.com.mercadolibre.morse.exception.PatternMatchingException;
-import ar.com.mercadolibre.morse.model.Human2MorseTranslator;
-import ar.com.mercadolibre.morse.model.Morse2HumanTranslator;
+import ar.com.mercadolibre.morse.model.BitCalculator;
+import ar.com.mercadolibre.morse.model.translator.Human2MorseTranslator;
+import ar.com.mercadolibre.morse.model.translator.Morse2HumanTranslator;
+import ar.com.mercadolibre.morse.utils.TestEnviroment;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class MorseTranslatorTest {
-
-    String morseBitCoded1 = "0000000011011011001110000011111100011111100111111000000011101111111101110" +
-            "1110000000110001111110000011111100111111000000011000011011111111011101110" +
-            "0000011011100000000000";
-
-    String morse1 = ".... --- .-.. .-  -- . .-.. ..";
-    String sentence = "HOLA MELI";
-
+public class MorseTranslatorTest  extends TestEnviroment {
 
     Morse2HumanTranslator morse2HumanTranslator = new Morse2HumanTranslator();
     Human2MorseTranslator human2MorseTranslator = new Human2MorseTranslator();
@@ -35,13 +29,5 @@ public class MorseTranslatorTest {
         Assertions.assertEquals(morse1, morse);
     }
 
-    @Test
-    public void testGetDotMaxBitLength(){
-
-        int maxBitLenght = BitCalculator.getDotMaxBitLength(morseBitCoded1);
-
-        Assertions.assertEquals(maxBitLenght, 3);
-
-    }
 
 }
