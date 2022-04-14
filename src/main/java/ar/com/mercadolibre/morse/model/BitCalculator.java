@@ -1,8 +1,7 @@
 package ar.com.mercadolibre.morse.model;
 
-import java.text.CharacterIterator;
-import java.text.StringCharacterIterator;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class BitCalculator {
 
@@ -12,34 +11,21 @@ public class BitCalculator {
         this.bitContainer = new BitContainer(morseBitCoded);
     }
 
-    public static int getDotMaxBitLength(String morseBitCoded) {
+    public int getDotMaxBitLength(){
+        AtomicReference<Integer> total = new AtomicReference<>(0);
+        bitContainer.pulseSecuences.forEach(s -> total.set(total.get() + s.length()));
+        return total.get() / bitContainer.pulseSecuences.size() ;
+    }
 
-
-        return 3;
+    public ArrayList<String> getAllSecuences(){
+        return bitContainer.getAllSecuences();
     }
 
 
-    private static ArrayList<String> explodeArray(String bits) {
-        CharacterIterator itr = new StringCharacterIterator(bits);
-        ArrayList<String> lista = new ArrayList<>();
-
-        String word = "";
-
-        for (int i = 0; i <  itr.getEndIndex(); i++) {
-            char current = itr.current();
-            char next = itr.next();
-
-            if (next != current) {
-                lista.add(word);
-                word = "" + next;
-            }
-            else{
-                word = word + itr.current();
-            }
-
-        }
-        return lista;
+    public int getMaxBetweenDashDot() {
+        AtomicReference<Integer> total = new AtomicReference<>(0);
+        bitContainer.getPauseSecuences().forEach(s -> total.set(total.get() + s.length()));
+        return total.get() / bitContainer.pauseSecuences.size() ;
     }
-
 }
 
