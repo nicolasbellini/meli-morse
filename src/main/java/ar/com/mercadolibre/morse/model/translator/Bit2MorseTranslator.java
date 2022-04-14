@@ -1,6 +1,6 @@
 package ar.com.mercadolibre.morse.model.translator;
 
-import ar.com.mercadolibre.morse.model.BitCalculator;
+import ar.com.mercadolibre.morse.model.bit.BitCalculator;
 
 public class Bit2MorseTranslator {
 

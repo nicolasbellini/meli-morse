@@ -1,8 +1,9 @@
-package ar.com.mercadolibre.morse;
+package ar.com.mercadolibre.morse.translator;
 
 import ar.com.mercadolibre.morse.model.translator.Bit2MorseTranslator;
 import ar.com.mercadolibre.morse.utils.TestEnviroment;
 import org.junit.Assert;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class Bit2MorseTranslatorTest extends TestEnviroment {
@@ -16,8 +17,8 @@ public class Bit2MorseTranslatorTest extends TestEnviroment {
     String morse2 = ".... --- .-.. .- -- ..-.. ..";
 
     @Test
+    @DisplayName("Should transform a bit secuence into a morse code")
     public void test1(){
-
         Assert.assertEquals(morse2, morseTranslator.translateToMorse(morseBitCoded2));
 
     }

@@ -1,8 +1,7 @@
 package ar.com.mercadolibre.morse;
 
-import ar.com.mercadolibre.morse.model.BitContainer;
+import ar.com.mercadolibre.morse.model.bit.BitContainer;
 import ar.com.mercadolibre.morse.utils.TestEnviroment;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

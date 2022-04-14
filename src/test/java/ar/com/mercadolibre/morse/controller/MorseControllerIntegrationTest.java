@@ -2,6 +2,7 @@ package ar.com.mercadolibre.morse.controller;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -23,9 +24,9 @@ public class MorseControllerIntegrationTest {
     @Autowired
     private MockMvc mockMvc;
 
-
     @Test
-    public void test1() throws Exception {
+    @DisplayName("Endpoint should return 200 and return a translated morse code to human")
+    public void testTranslate2HumanEndpoint() throws Exception {
         MvcResult mvcResult = this.mockMvc.perform(post("/translate/2human").param("morse",".... --- .-.. .-  -- . .-.. .."))
                 .andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
 
@@ -33,7 +34,8 @@ public class MorseControllerIntegrationTest {
     }
 
     @Test
-    public void test2() throws Exception {
+    @DisplayName("Endpoint should return 200 and return a translated human to morse code")
+    public void testTranslate2MorseEndPoint() throws Exception {
         MvcResult mvcResult = this.mockMvc.perform(post("/translate/2morse").param("text","HOLA MELI"))
                 .andExpect(MockMvcResultMatchers.status().isOk()).andReturn();
 

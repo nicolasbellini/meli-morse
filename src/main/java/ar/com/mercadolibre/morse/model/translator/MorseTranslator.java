@@ -23,14 +23,14 @@ public abstract class MorseTranslator {
     String translateCharacter(String morseChar) throws CharNotFoundException {
         String translatedLetter = charMap.get(morseChar);
         if (translatedLetter == null){
-            throw new CharNotFoundException("Could not find translation for: " + morseChar);
+            throw new CharNotFoundException();
         }
         return translatedLetter;
     }
 
     void checkValid(String morse, String regex) throws PatternMatchingException {
         if (!morse.matches(regex)){
-            throw new PatternMatchingException("Wrong pattern");
+            throw new PatternMatchingException();
         };
     }
 

@@ -1,4 +1,4 @@
-package ar.com.mercadolibre.morse.model;
+package ar.com.mercadolibre.morse.model.bit;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
