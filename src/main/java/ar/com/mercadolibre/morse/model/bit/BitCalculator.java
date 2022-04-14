@@ -1,31 +1,40 @@
 package ar.com.mercadolibre.morse.model.bit;
 
+import ar.com.mercadolibre.morse.model.bit.secuence.Sequence;
+import lombok.Getter;
+
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class BitCalculator {
 
+    @Getter
+    private int maxDot;
+    @Getter
+    private int maxDash;
+
     private final BitContainer bitContainer;
 
     public BitCalculator(String morseBitCoded) {
         this.bitContainer = new BitContainer(morseBitCoded);
+        maxDot = calculateDotMaxBitLength();
+        maxDash =calculateMaxBetweenDashDot();
     }
 
-    public int getDotMaxBitLength(){
+    public int calculateDotMaxBitLength(){
         AtomicReference<Integer> total = new AtomicReference<>(0);
-        bitContainer.pulseSecuences.forEach(s -> total.set(total.get() + s.length()));
-        return total.get() / bitContainer.pulseSecuences.size() ;
+        bitContainer.pulseSequences.forEach(s -> total.set(total.get() + s.length()));
+        return total.get() / bitContainer.pulseSequences.size() ;
     }
 
-    public ArrayList<String> getAllSecuences(){
-        return bitContainer.getAllSecuences();
-    }
-
-
-    public int getMaxBetweenDashDot() {
+    public int calculateMaxBetweenDashDot() {
         AtomicReference<Integer> total = new AtomicReference<>(0);
-        bitContainer.getPauseSecuences().forEach(s -> total.set(total.get() + s.length()));
-        return total.get() / bitContainer.pauseSecuences.size() ;
+        bitContainer.getPauseSequences().forEach(s -> total.set(total.get() + s.length()));
+        return total.get() / bitContainer.pauseSequences.size() ;
+    }
+
+    public ArrayList<Sequence> getAllSecuences(){
+        return bitContainer.getAllSequences();
     }
 }
 

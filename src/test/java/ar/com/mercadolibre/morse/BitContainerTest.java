@@ -1,6 +1,8 @@
 package ar.com.mercadolibre.morse;
 
 import ar.com.mercadolibre.morse.model.bit.BitContainer;
+import ar.com.mercadolibre.morse.model.bit.secuence.PauseSequence;
+import ar.com.mercadolibre.morse.model.bit.secuence.PulseSequence;
 import ar.com.mercadolibre.morse.utils.TestEnviroment;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,7 +23,7 @@ public class BitContainerTest extends TestEnviroment {
     @DisplayName("Should map all secuences of a bit string")
     public void test1(){
         BitContainer bitContainer = new BitContainer(morseBitCoded1);
-        Assertions.assertEquals(bitContainer.getAllSecuences().size(), 43);
+        Assertions.assertEquals(bitContainer.getAllSequences().size(), 43);
     }
 
     @Test
@@ -38,8 +40,8 @@ public class BitContainerTest extends TestEnviroment {
     public void test3(){
         ReflectionTestUtils.invokeMethod(bitContainer, "mapSecuence", "00");
         ReflectionTestUtils.invokeMethod(bitContainer, "mapSecuence", "11");
-        Assertions.assertTrue(bitContainer.getPulseSecuences().contains("11"));
-        Assertions.assertTrue(bitContainer.getPauseSecuences().contains("00"));
+        Assertions.assertTrue(bitContainer.getPulseSequences().contains(new PulseSequence("11")));
+        Assertions.assertTrue(bitContainer.getPauseSequences().contains(new PauseSequence("00")));
     }
 
 }

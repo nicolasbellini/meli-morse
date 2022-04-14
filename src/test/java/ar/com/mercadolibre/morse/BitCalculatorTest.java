@@ -12,13 +12,13 @@ public class BitCalculatorTest extends TestEnviroment{
 
     @Test
     public void testGetDotMaxBitLength(){
-        int maxBitLenght = bitCalculator.getDotMaxBitLength();
+        int maxBitLenght = bitCalculator.calculateDotMaxBitLength();
         assertEquals(maxBitLenght, 4);
     }
 
     @Test
     public void testGetMaxBetweenDashDot(){
-        int maxBitLenght = bitCalculator.getMaxBetweenDashDot();
+        int maxBitLenght = bitCalculator.calculateMaxBetweenDashDot();
         assertEquals(4 , maxBitLenght);
     }
 

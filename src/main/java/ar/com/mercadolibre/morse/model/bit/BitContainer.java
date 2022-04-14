@@ -1,5 +1,9 @@
 package ar.com.mercadolibre.morse.model.bit;
 
+import ar.com.mercadolibre.morse.model.bit.secuence.PauseSequence;
+import ar.com.mercadolibre.morse.model.bit.secuence.PulseSequence;
+import ar.com.mercadolibre.morse.model.bit.secuence.Sequence;
+import ar.com.mercadolibre.morse.model.bit.secuence.SequenceComparator;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -11,11 +15,11 @@ import java.util.regex.Pattern;
 public class BitContainer {
 
     @Getter
-    ArrayList<String> allSecuences = new ArrayList<>();
+    ArrayList<Sequence> allSequences = new ArrayList<>();
     @Getter
-    Set<String> pulseSecuences = new TreeSet<>();
+    Set<Sequence> pulseSequences = new TreeSet<>(new SequenceComparator());
     @Getter
-    Set<String> pauseSecuences = new TreeSet<>();
+    Set<Sequence> pauseSequences = new TreeSet<>(new SequenceComparator());
 
     public BitContainer(String morseBitCoded) {
         this.mapSecuences(removeStatic(morseBitCoded));
@@ -34,14 +38,17 @@ public class BitContainer {
         matcher.results().forEach(matchResult -> mapSecuence(matchResult.group()));
     }
 
-    private void mapSecuence(String secuence) {
-        allSecuences.add(secuence);
-        if(secuence.matches("0+")){
-            pauseSecuences.add(secuence);
+    private void mapSecuence(String bitsequence) {
+        Sequence sequence;
+        if(bitsequence.matches("0+")){
+            sequence = new PauseSequence(bitsequence);
+            pauseSequences.add(sequence);
         }
         else{
-            pulseSecuences.add(secuence);
+            sequence = new PulseSequence(bitsequence);
+            pulseSequences.add(sequence);
         }
+        allSequences.add(sequence);
     }
 
 
