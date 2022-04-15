@@ -9,7 +9,7 @@ public class Morse2HumanTranslator extends MorseTranslator{
         super(MorseTable.getMorseToLetterMap());
     }
 
-    public String translateToHuman(String morse) throws PatternMatchingException, CharNotFoundException {
+    public String translate(String morse) throws PatternMatchingException, CharNotFoundException {
         //this.checkValid(morse, "(-|\\.| )");
         String finalPhrase = "";
         String[] words = morse.trim().split("\\s\\s+");

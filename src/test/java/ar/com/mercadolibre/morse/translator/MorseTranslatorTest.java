@@ -20,14 +20,14 @@ public class MorseTranslatorTest  extends TestEnviroment {
     @Test
     @DisplayName("Translates morse code to human readable sentence")
     public void test1() throws PatternMatchingException, CharNotFoundException {
-        String decodedMorse = morse2HumanTranslator.translateToHuman(morse1);
+        String decodedMorse = morse2HumanTranslator.translate(morse1);
         Assertions.assertEquals(sentence, decodedMorse);
     }
 
     @Test
     @DisplayName("Translates human sentence to morse code")
     public void test2() throws PatternMatchingException, CharNotFoundException {
-       String morse = human2MorseTranslator.translateToMorse(sentence);
+       String morse = human2MorseTranslator.translate(sentence);
         Assertions.assertEquals(morse1, morse);
     }
 

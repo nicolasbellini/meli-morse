@@ -13,10 +13,10 @@ public class MorseServiceImpl implements MorseService {
     Human2MorseTranslator human2MorseTranslator = new Human2MorseTranslator();
 
     public String translateToHuman(String morse) throws PatternMatchingException, CharNotFoundException {
-        return morse2HumanTranslator.translateToHuman(morse);
+        return morse2HumanTranslator.translate(morse);
     }
 
     public String translateToMorse(String text) throws PatternMatchingException, CharNotFoundException {
-        return human2MorseTranslator.translateToMorse(text);
+        return human2MorseTranslator.translate(text);
     }
 }

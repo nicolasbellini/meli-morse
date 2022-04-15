@@ -12,6 +12,8 @@ public abstract class MorseTranslator {
         this.charMap = charMap;
     }
 
+    public abstract String translate(String phrase) throws PatternMatchingException, CharNotFoundException;
+
     String translateWord(String[] word, String separator) throws CharNotFoundException {
         String translatedWord = "";
         for (String character : word) {
