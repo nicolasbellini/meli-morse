@@ -1,4 +1,4 @@
-package ar.com.mercadolibre.morse;
+package ar.com.mercadolibre.morse.utils;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;

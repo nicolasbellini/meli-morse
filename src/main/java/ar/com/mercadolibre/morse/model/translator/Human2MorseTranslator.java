@@ -1,6 +1,6 @@
 package ar.com.mercadolibre.morse.model.translator;
 
-import ar.com.mercadolibre.morse.MorseTable;
+import ar.com.mercadolibre.morse.utils.MorseTable;
 import ar.com.mercadolibre.morse.exception.CharNotFoundException;
 import ar.com.mercadolibre.morse.exception.PatternMatchingException;
 
