@@ -12,10 +12,9 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 import java.lang.reflect.UndeclaredThrowableException;
 
-public class MorseTranslatorTest  extends TestEnviroment {
+public class Morse2HumanTranslatorTest extends TestEnviroment {
 
     Morse2HumanTranslator morse2HumanTranslator = new Morse2HumanTranslator();
-    Human2MorseTranslator human2MorseTranslator = new Human2MorseTranslator();
 
     @Test
     @DisplayName("Translates morse code to human readable sentence")
@@ -25,21 +24,14 @@ public class MorseTranslatorTest  extends TestEnviroment {
     }
 
     @Test
-    @DisplayName("Translates human sentence to morse code")
-    public void test2() throws PatternMatchingException, CharNotFoundException {
-       String morse = human2MorseTranslator.translate(sentence);
-        Assertions.assertEquals(morse1, morse);
-    }
-
-    @Test
     @DisplayName("Should translate one morse character")
-    public void test3(){
+    public void test2(){
         Assertions.assertEquals(ReflectionTestUtils.invokeMethod(morse2HumanTranslator, "translateCharacter", ".-"),"A");
     }
 
     @Test
     @DisplayName("Should throw CharNotFoundException when trying to translate an unknown secuence")
-    public void test4(){
+    public void test3(){
         try {
             ReflectionTestUtils.invokeMethod(morse2HumanTranslator, "translateCharacter", "A");
         }catch (UndeclaredThrowableException exception){
@@ -49,10 +41,9 @@ public class MorseTranslatorTest  extends TestEnviroment {
 
     @Test
     @DisplayName("Should translate one morse word")
-    public void test5(){
+    public void test4(){
         String[] word = new String[4];word[0] = "....";word[1] = "---";word[2] = ".-..";word[3] = ".-";
         Assertions.assertEquals(ReflectionTestUtils.invokeMethod(morse2HumanTranslator, "translateWord", word, ""),"HOLA");
     }
-
 
 }

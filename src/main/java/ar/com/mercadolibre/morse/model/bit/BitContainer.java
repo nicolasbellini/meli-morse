@@ -1,5 +1,6 @@
 package ar.com.mercadolibre.morse.model.bit;
 
+import ar.com.mercadolibre.morse.exception.PatternMatchingException;
 import ar.com.mercadolibre.morse.model.bit.secuence.PauseSequence;
 import ar.com.mercadolibre.morse.model.bit.secuence.PulseSequence;
 import ar.com.mercadolibre.morse.model.bit.secuence.Sequence;
@@ -21,7 +22,10 @@ public class BitContainer {
     @Getter
     Set<Sequence> pauseSequences = new TreeSet<>(new SequenceComparator());
 
-    public BitContainer(String morseBitCoded) {
+    public BitContainer(String morseBitCoded) throws PatternMatchingException {
+        if (!morseBitCoded.matches(("^[0-1]+$"))){
+            throw new PatternMatchingException("Bits cointain non binary characters");
+        };
         this.mapSecuences(removeStatic(morseBitCoded));
     }
 

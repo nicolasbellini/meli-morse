@@ -1,5 +1,6 @@
 package ar.com.mercadolibre.morse.model.bit;
 
+import ar.com.mercadolibre.morse.exception.PatternMatchingException;
 import ar.com.mercadolibre.morse.model.bit.secuence.Sequence;
 import lombok.Getter;
 
@@ -15,7 +16,7 @@ public class BitCalculator {
 
     private final BitContainer bitContainer;
 
-    public BitCalculator(String morseBitCoded) {
+    public BitCalculator(String morseBitCoded) throws PatternMatchingException {
         this.bitContainer = new BitContainer(morseBitCoded);
         maxDot = calculateDotMaxBitLength();
         maxDash =calculateMaxBetweenDashDot();
@@ -33,7 +34,7 @@ public class BitCalculator {
         return total.get() / bitContainer.pauseSequences.size() ;
     }
 
-    public ArrayList<Sequence> getAllSecuences(){
+    public ArrayList<Sequence> getAllSequences(){
         return bitContainer.getAllSequences();
     }
 }

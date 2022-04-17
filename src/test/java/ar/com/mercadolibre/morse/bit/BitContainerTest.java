@@ -1,5 +1,6 @@
 package ar.com.mercadolibre.morse.bit;
 
+import ar.com.mercadolibre.morse.exception.PatternMatchingException;
 import ar.com.mercadolibre.morse.model.bit.BitContainer;
 import ar.com.mercadolibre.morse.model.bit.secuence.PauseSequence;
 import ar.com.mercadolibre.morse.model.bit.secuence.PulseSequence;
@@ -21,7 +22,7 @@ public class BitContainerTest extends TestEnviroment {
 
     @Test
     @DisplayName("Should map all secuences of a bit string")
-    public void test1(){
+    public void test1() throws PatternMatchingException {
         BitContainer bitContainer = new BitContainer(morseBitCoded1);
         Assertions.assertEquals(bitContainer.getAllSequences().size(), 43);
     }
@@ -44,4 +45,9 @@ public class BitContainerTest extends TestEnviroment {
         Assertions.assertTrue(bitContainer.getPauseSequences().contains(new PauseSequence("00")));
     }
 
+    @Test
+    @DisplayName("Should throw PatterMatchingException if a non binary character is given")
+    public void test4(){
+        Assertions.assertThrows(PatternMatchingException.class, () -> new BitContainer("asd"));
+    }
 }

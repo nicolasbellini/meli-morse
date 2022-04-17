@@ -1,5 +1,6 @@
 package ar.com.mercadolibre.morse.translator;
 
+import ar.com.mercadolibre.morse.exception.PatternMatchingException;
 import ar.com.mercadolibre.morse.model.translator.Bit2MorseTranslator;
 import ar.com.mercadolibre.morse.utils.TestEnviroment;
 import org.junit.Assert;
@@ -18,7 +19,7 @@ public class Bit2MorseTranslatorTest extends TestEnviroment {
 
     @Test
     @DisplayName("Should transform a bit secuence into a morse code")
-    public void test1(){
+    public void test1() throws PatternMatchingException {
         Assert.assertEquals(morse2, morseTranslator.translateToMorse(morseBitCoded2));
 
     }
