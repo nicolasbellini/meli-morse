@@ -31,5 +31,4 @@ public class Bit2MorseTranslatorTest extends TestEnviroment {
         Assert.assertEquals("-.- --- -. ---", morseTranslator.translateToMorse(getMorseBitCoded3));
     }
 
-
 }
