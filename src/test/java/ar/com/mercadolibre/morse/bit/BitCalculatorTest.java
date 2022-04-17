@@ -17,7 +17,7 @@ public class BitCalculatorTest extends TestEnviroment{
     @Test
     public void testGetDotMaxBitLength(){
         int maxBitLenght = bitCalculator.calculateDotMaxBitLength();
-        assertEquals(maxBitLenght, 4);
+        assertEquals(maxBitLenght, 5);
     }
 
     @Test
