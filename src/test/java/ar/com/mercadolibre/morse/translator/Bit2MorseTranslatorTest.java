@@ -31,4 +31,10 @@ public class Bit2MorseTranslatorTest extends TestEnviroment {
         Assert.assertEquals("-.- --- -. ---", morseTranslator.translateToMorse(getMorseBitCoded3));
     }
 
+    @Test
+    @DisplayName("Should translate 2 letters")
+    public void test3() throws PatternMatchingException {
+        Assert.assertEquals(".... ---", morseTranslator.translateToMorse("11011011001110000011111100011111100111111"));
+    }
+
 }

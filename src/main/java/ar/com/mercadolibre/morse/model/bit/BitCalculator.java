@@ -12,26 +12,26 @@ public class BitCalculator {
     @Getter
     private int maxDot;
     @Getter
-    private int maxDash;
+    private int minSpace;
 
     private final BitContainer bitContainer;
 
     public BitCalculator(String morseBitCoded) throws PatternMatchingException {
         this.bitContainer = new BitContainer(morseBitCoded);
         maxDot = calculateDotMaxBitLength();
-        maxDash =calculateMaxBetweenDashDot();
+        minSpace = calculateSpaceMaxBitLength();
     }
 
     public int calculateDotMaxBitLength(){
         AtomicReference<Integer> total = new AtomicReference<>(0);
         bitContainer.pulseSequences.forEach(s -> total.set(total.get() + s.length()));
-        return total.get() / bitContainer.pulseSequences.size();
+        return (int) Math.ceil((double) total.get() / bitContainer.pulseSequences.size());
     }
 
-    public int calculateMaxBetweenDashDot() {
+    public int calculateSpaceMaxBitLength() {
         AtomicReference<Integer> total = new AtomicReference<>(0);
         bitContainer.getPauseSequences().forEach(s -> total.set(total.get() + s.length()));
-        return total.get() / bitContainer.pauseSequences.size();
+        return (int) Math.ceil((double) total.get() / bitContainer.pauseSequences.size());
     }
 
     public ArrayList<Sequence> getAllSequences(){

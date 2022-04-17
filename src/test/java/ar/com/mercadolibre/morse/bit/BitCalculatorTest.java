@@ -22,7 +22,7 @@ public class BitCalculatorTest extends TestEnviroment{
 
     @Test
     public void testGetMaxBetweenDashDot(){
-        int maxBitLenght = bitCalculator.calculateMaxBetweenDashDot();
+        int maxBitLenght = bitCalculator.calculateSpaceMaxBitLength();
         assertEquals(4 , maxBitLenght);
     }
 
