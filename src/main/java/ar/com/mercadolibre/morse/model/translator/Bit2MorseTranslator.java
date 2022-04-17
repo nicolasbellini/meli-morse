@@ -12,14 +12,10 @@ public class Bit2MorseTranslator {
         String finalMorse = "";
         bitCalculator = new BitCalculator(bits);
 
-        for (Sequence secuence : bitCalculator.getAllSequences()) {
-            finalMorse = finalMorse + translateSecuence(secuence);
+        for (Sequence sequence : bitCalculator.getAllSequences()) {
+            finalMorse = finalMorse + sequence.translate(bitCalculator);
         }
         return finalMorse;
-    }
-
-    private String translateSecuence(Sequence sequence) {
-        return sequence.translate(bitCalculator);
     }
 
 }

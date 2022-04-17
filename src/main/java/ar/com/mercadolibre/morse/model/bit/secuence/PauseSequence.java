@@ -10,7 +10,7 @@ public class PauseSequence extends Sequence{
 
     @Override
     public String translate(BitCalculator bitCalculator) {
-        if(sequence.length() > bitCalculator.getMaxDash()){
+        if(sequence.length() >= bitCalculator.getMaxDash()){
             return " ";
         }
         return "";

@@ -25,13 +25,13 @@ public class BitCalculator {
     public int calculateDotMaxBitLength(){
         AtomicReference<Integer> total = new AtomicReference<>(0);
         bitContainer.pulseSequences.forEach(s -> total.set(total.get() + s.length()));
-        return total.get() / bitContainer.pulseSequences.size() ;
+        return total.get() / bitContainer.pulseSequences.size();
     }
 
     public int calculateMaxBetweenDashDot() {
         AtomicReference<Integer> total = new AtomicReference<>(0);
         bitContainer.getPauseSequences().forEach(s -> total.set(total.get() + s.length()));
-        return total.get() / bitContainer.pauseSequences.size() ;
+        return total.get() / bitContainer.pauseSequences.size();
     }
 
     public ArrayList<Sequence> getAllSequences(){

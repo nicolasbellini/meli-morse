@@ -10,7 +10,7 @@ public class PulseSequence extends Sequence{
 
     @Override
     public String translate(BitCalculator bitCalculator) {
-        if(sequence.length() > bitCalculator.getMaxDot()){
+        if(sequence.length() >= bitCalculator.getMaxDot()){
             return "-";
         }
         return ".";
